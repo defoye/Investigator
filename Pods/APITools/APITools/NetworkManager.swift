@@ -27,6 +27,7 @@ public protocol NetworkManager {
 	//	associatedtype environment
 	
 	func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>
+	func handleResponse(data: Data?, response: URLResponse?, error: Error?, completion: @escaping (Data?) -> Void) 
 }
 
 extension NetworkManager {
@@ -37,6 +38,37 @@ extension NetworkManager {
 		case 501...599: return .failure(NetworkResponse.badRequest.rawValue)
 		case 600: return .failure(NetworkResponse.outDated.rawValue)
 		default: return .failure(NetworkResponse.failed.rawValue)
+		}
+	}
+}
+
+extension NetworkManager {
+	
+	public func handleResponse(data: Data?, response: URLResponse?, error: Error?, completion: @escaping (Data?) -> Void) {
+		
+		if error != nil {
+			print("Please check your network connection.")
+			completion(nil)
+		}
+		
+		if let response = response as? HTTPURLResponse {
+			
+			let result = self.handleNetworkResponse(response)
+			switch result {
+				
+			case .success:
+				guard let responseData = data else {
+					print(NetworkResponse.noData.rawValue)
+					completion(nil)
+					return
+				}
+				
+				completion(responseData)
+				
+			case .failure(let networkFailureError):
+				print("Network failure error: \(networkFailureError)")
+				completion(nil)
+			}
 		}
 	}
 }

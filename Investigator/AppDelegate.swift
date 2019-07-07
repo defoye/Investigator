@@ -21,10 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		let navigationController = UINavigationController()
 		let stockPlotCoordinator = StockPlotCoordinator(navigationController: navigationController)
-		
+
 		stockPlotCoordinator.start()
 		
 		window?.rootViewController = stockPlotCoordinator.navigationController
+
+		
+//		let navigationController = UINavigationController()
+//		let subsectorDashboardCoordinator = SubsectorDashboardCoordinator(navigationController: navigationController)
+//
+//		subsectorDashboardCoordinator.start()
+		
+//		window?.rootViewController = subsectorDashboardCoordinator.navigationController
 		
 		return true
 	}

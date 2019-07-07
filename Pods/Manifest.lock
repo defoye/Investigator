@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   APITools:
-    :commit: 42cbc2bc103762352e1e4f4058d9a12b029ed964
+    :commit: 5dc09ef51ef78c0201482700f3a74683a2924521
     :git: https://github.com/defoye/APITools.git
   DVTools:
     :commit: 0cc572ed95977a1e0f7a77e566948029c0e1196a
@@ -28,7 +28,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/defoye/MVVMCTools.git
 
 SPEC CHECKSUMS:
-  APITools: b6ee80fe51676b0bea29e466547480a4bee1459f
+  APITools: 804c0742bb1c68eb059d32d88551f0323087dd33
   DVTools: 95e73777a9f47ac25e2443efee4c2dee5adbaeb0
   MVVMCTools: e1a40526ca811a262005ec7ca11660d428f01656
 

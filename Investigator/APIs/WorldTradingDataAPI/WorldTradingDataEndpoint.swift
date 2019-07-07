@@ -1,27 +1,27 @@
 //
-//  AlphaAdvantageEndpoint.swift
+//  WorldTradingDataEndpoint.swift
 //  Investigator
 //
-//  Created by Ernest DeFoy on 7/6/19.
+//  Created by Ernest DeFoy on 7/7/19.
 //  Copyright © 2019 Ernest DeFoy III. All rights reserved.
 //
 
 import Foundation
 import APITools
 
-enum AlphaAdvantageNetworkEnvironment {
-	case alphaAdvantageEnvironment
+enum WorldTradingDataNetworkEnvironment {
+	case worldTradingDataEnvironment
 }
 
-public enum AlphaAdvantageAPI {
-	case timeSeriesIntraday(symbol: String, interval: String)
+public enum WorldTradingDataAPI {
+	case timeSeriesIntraday(range: String, symbol: String, interval: String)
 }
 
-extension AlphaAdvantageAPI: EndPointType {
+extension WorldTradingDataAPI: EndPointType {
 	
 	var environmentBaseURL : String {
-		switch AlphaAdvantageDataManager.environment {
-		case .alphaAdvantageEnvironment: return "https://www.alphavantage.co/"
+		switch WorldTradingDataDataManager.environment {
+		case .worldTradingDataEnvironment: return "https://intraday.worldtradingdata.com/"
 		}
 	}
 	
@@ -43,12 +43,12 @@ extension AlphaAdvantageAPI: EndPointType {
 	
 	public var task: HTTPTask {
 		switch self {
-		case .timeSeriesIntraday(let symbol, let interval):
+		case .timeSeriesIntraday(let range, let symbol, let interval):
 			return .requestParameters(bodyParameters: nil,
-									  urlParameters: ["function":"TIME_SERIES_INTRADAY",
+									  urlParameters: ["range":range,
 													  "symbol":symbol,
 													  "interval":interval,
-													  "apikey":AlphaAdvantageDataManager.AlphaAdvantageAPIKey])
+													  "api_token":WorldTradingDataDataManager.WorldTradingDataAPIKey])
 		default:
 			return .request
 		}

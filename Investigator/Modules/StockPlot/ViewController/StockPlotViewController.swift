@@ -57,13 +57,10 @@ extension StockPlotViewController {
 		super.viewDidLoad()
 		setup()
 		
-		// Load data.
-		tableViewModel.loadTimeSeriesIntraDay {
-			DispatchQueue.main.async {
-				print("Reload tableView")
-				self.tableView.reloadData()
-			}
-		}
+		loadIntraday(forSymbol: "MSFT")
+		loadIntraday(forSymbol: "AAPL")
+		loadIntraday(forSymbol: "GOOG")
+		loadIntraday(forSymbol: "NVDA")
 	}
 }
 
@@ -113,5 +110,20 @@ extension StockPlotViewController: UITableViewDataSource {
 		cell.configure(model: tableViewModel.cellViewModelFor(section: indexPath.section, row: indexPath.row))
 		
 		return cell as! UITableViewCell
+	}
+}
+
+extension StockPlotViewController {
+	
+	// MARK:- Helpers.
+	
+	private func loadIntraday(forSymbol symbol: String) {
+		// Load data.
+		tableViewModel.loadTimeSeriesIntraDay(forSymbol: symbol) {
+			DispatchQueue.main.async {
+				print("Reload tableView")
+				self.tableView.reloadData()
+			}
+		}
 	}
 }

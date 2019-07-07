@@ -9,7 +9,7 @@
     "Ernest DeFoy III": "erniedefoy3@gmail.com"
   },
   "source": {
-    "path": "."
+    "git": "https://github.com/defoye/APITools.git"
   },
   "source_files": "APITools",
   "platforms": {

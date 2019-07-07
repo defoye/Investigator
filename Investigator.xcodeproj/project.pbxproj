@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5322073722D231AF006D7E1B /* WorldTradingDataAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322073622D231AF006D7E1B /* WorldTradingDataAPIResponse.swift */; };
+		53544DF122D2199E00E2AB45 /* SubsectorDashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53544DF022D2199E00E2AB45 /* SubsectorDashboardCoordinator.swift */; };
+		53544DF522D220F000E2AB45 /* SubsectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53544DF422D220F000E2AB45 /* SubsectorViewController.swift */; };
+		53544DF722D220F800E2AB45 /* SubsectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53544DF622D220F800E2AB45 /* SubsectorViewModel.swift */; };
+		53544DF922D2210300E2AB45 /* SubsectorDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53544DF822D2210300E2AB45 /* SubsectorDataManager.swift */; };
+		53544DFB22D2211700E2AB45 /* SubsectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53544DFA22D2211700E2AB45 /* SubsectorCell.swift */; };
+		53544DFD22D2212500E2AB45 /* SubsectorCellViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53544DFC22D2212500E2AB45 /* SubsectorCellViewData.swift */; };
+		5370717E22D237BE00B07E7F /* WorldTradingDataEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370717D22D237BE00B07E7F /* WorldTradingDataEndpoint.swift */; };
+		5370718122D2388800B07E7F /* WorldTradingDataDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370718022D2388800B07E7F /* WorldTradingDataDataManager.swift */; };
 		5390393B22D12B7C00CEADEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5390393A22D12B7C00CEADEF /* AppDelegate.swift */; };
 		5390394222D12B7D00CEADEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5390394122D12B7D00CEADEF /* Assets.xcassets */; };
 		5390395022D12B7D00CEADEF /* InvestigatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5390394F22D12B7D00CEADEF /* InvestigatorTests.swift */; };
@@ -62,6 +71,15 @@
 /* Begin PBXFileReference section */
 		0768522A16693DBAC7B54948 /* Pods_InvestigatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InvestigatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF0F5FCB87B6057E9E83A0A /* Pods-Investigator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Investigator.debug.xcconfig"; path = "Target Support Files/Pods-Investigator/Pods-Investigator.debug.xcconfig"; sourceTree = "<group>"; };
+		5322073622D231AF006D7E1B /* WorldTradingDataAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTradingDataAPIResponse.swift; sourceTree = "<group>"; };
+		53544DF022D2199E00E2AB45 /* SubsectorDashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsectorDashboardCoordinator.swift; sourceTree = "<group>"; };
+		53544DF422D220F000E2AB45 /* SubsectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsectorViewController.swift; sourceTree = "<group>"; };
+		53544DF622D220F800E2AB45 /* SubsectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsectorViewModel.swift; sourceTree = "<group>"; };
+		53544DF822D2210300E2AB45 /* SubsectorDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsectorDataManager.swift; sourceTree = "<group>"; };
+		53544DFA22D2211700E2AB45 /* SubsectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsectorCell.swift; sourceTree = "<group>"; };
+		53544DFC22D2212500E2AB45 /* SubsectorCellViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsectorCellViewData.swift; sourceTree = "<group>"; };
+		5370717D22D237BE00B07E7F /* WorldTradingDataEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTradingDataEndpoint.swift; sourceTree = "<group>"; };
+		5370718022D2388800B07E7F /* WorldTradingDataDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTradingDataDataManager.swift; sourceTree = "<group>"; };
 		5390393722D12B7C00CEADEF /* Investigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Investigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5390393A22D12B7C00CEADEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5390394122D12B7D00CEADEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +153,135 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5322072922D22528006D7E1B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				53544DF422D220F000E2AB45 /* SubsectorViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5322072A22D2252E006D7E1B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				53544DF622D220F800E2AB45 /* SubsectorViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5322072B22D22532006D7E1B /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				53544DF822D2210300E2AB45 /* SubsectorDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		5322072C22D2253A006D7E1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53544DFC22D2212500E2AB45 /* SubsectorCellViewData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5322072D22D2256B006D7E1B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53544DFA22D2211700E2AB45 /* SubsectorCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5322072E22D2258F006D7E1B /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				53EDF18222D13D3C005DADDB /* StockPlotCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		5322072F22D22597006D7E1B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				53EDF18422D13D49005DADDB /* StockPlotViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5322073022D2259C006D7E1B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				53EDF18622D13D51005DADDB /* StockPlotViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5322073122D225A1006D7E1B /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				53EDF18822D13D5A005DADDB /* StockPlotDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		5322073222D225A8006D7E1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53EDF1CC22D144DF005DADDB /* StockPlotCellViewData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5322073322D225AD006D7E1B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				539AC21522D16D6900F7C0FF /* DeleteMe.swift */,
+				53EDF1C822D143E3005DADDB /* StockPlotCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5322073522D23188006D7E1B /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				5322073822D2378E006D7E1B /* WorldTradingDataAPI */,
+				5390398022D1398000CEADEF /* AlphaAdvantageAPI */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		5322073822D2378E006D7E1B /* WorldTradingDataAPI */ = {
+			isa = PBXGroup;
+			children = (
+				5322073622D231AF006D7E1B /* WorldTradingDataAPIResponse.swift */,
+				5370717D22D237BE00B07E7F /* WorldTradingDataEndpoint.swift */,
+				5370718022D2388800B07E7F /* WorldTradingDataDataManager.swift */,
+			);
+			path = WorldTradingDataAPI;
+			sourceTree = "<group>";
+		};
+		53544DEF22D19AD000E2AB45 /* SubsectorDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				53544DFE22D224FF00E2AB45 /* Coordinator */,
+				5322072922D22528006D7E1B /* ViewController */,
+				5322072A22D2252E006D7E1B /* ViewModel */,
+				5322072B22D22532006D7E1B /* DataManager */,
+				5322072D22D2256B006D7E1B /* View */,
+				5322072C22D2253A006D7E1B /* Model */,
+			);
+			path = SubsectorDashboard;
+			sourceTree = "<group>";
+		};
+		53544DFE22D224FF00E2AB45 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				53544DF022D2199E00E2AB45 /* SubsectorDashboardCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		5390392E22D12B7C00CEADEF = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +307,7 @@
 		5390393922D12B7C00CEADEF /* Investigator */ = {
 			isa = PBXGroup;
 			children = (
+				5322073522D23188006D7E1B /* APIs */,
 				5390398722D139EB00CEADEF /* Extensions */,
 				5390396822D12BB800CEADEF /* Modules */,
 				5390393A22D12B7C00CEADEF /* AppDelegate.swift */,
@@ -190,7 +338,7 @@
 		5390396822D12BB800CEADEF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				5390398022D1398000CEADEF /* AlphaAdvantageAPI */,
+				53544DEF22D19AD000E2AB45 /* SubsectorDashboard */,
 				5390397F22D1384E00CEADEF /* FirestoreDataManagement */,
 				5390397E22D1384000CEADEF /* StockPlot */,
 			);
@@ -200,13 +348,12 @@
 		5390397E22D1384000CEADEF /* StockPlot */ = {
 			isa = PBXGroup;
 			children = (
-				53EDF18222D13D3C005DADDB /* StockPlotCoordinator.swift */,
-				53EDF18422D13D49005DADDB /* StockPlotViewController.swift */,
-				53EDF18622D13D51005DADDB /* StockPlotViewModel.swift */,
-				53EDF18822D13D5A005DADDB /* StockPlotDataManager.swift */,
-				53EDF1CC22D144DF005DADDB /* StockPlotCellViewData.swift */,
-				53EDF1C822D143E3005DADDB /* StockPlotCell.swift */,
-				539AC21522D16D6900F7C0FF /* DeleteMe.swift */,
+				5322072E22D2258F006D7E1B /* Coordinator */,
+				5322072F22D22597006D7E1B /* ViewController */,
+				5322073022D2259C006D7E1B /* ViewModel */,
+				5322073122D225A1006D7E1B /* DataManager */,
+				5322073322D225AD006D7E1B /* View */,
+				5322073222D225A8006D7E1B /* Model */,
 			);
 			path = StockPlot;
 			sourceTree = "<group>";
@@ -225,7 +372,8 @@
 				5390398322D139AB00CEADEF /* AlphaAdvantageDataManager.swift */,
 				5390398522D139C300CEADEF /* AlphaAdvantageModel.swift */,
 			);
-			path = AlphaAdvantageAPI;
+			name = AlphaAdvantageAPI;
+			path = ../Modules/AlphaAdvantageAPI;
 			sourceTree = "<group>";
 		};
 		5390398722D139EB00CEADEF /* Extensions */ = {
@@ -469,19 +617,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				53EDF18722D13D51005DADDB /* StockPlotViewModel.swift in Sources */,
+				53544DFB22D2211700E2AB45 /* SubsectorCell.swift in Sources */,
+				53544DF522D220F000E2AB45 /* SubsectorViewController.swift in Sources */,
+				53544DF722D220F800E2AB45 /* SubsectorViewModel.swift in Sources */,
 				53EDF1C922D143E4005DADDB /* StockPlotCell.swift in Sources */,
+				53544DFD22D2212500E2AB45 /* SubsectorCellViewData.swift in Sources */,
 				5390398B22D13A2A00CEADEF /* UIView+Extensions.swift in Sources */,
 				5390398D22D13A4100CEADEF /* UITextView+Extensions.swift in Sources */,
 				539AC21622D16D6900F7C0FF /* DeleteMe.swift in Sources */,
+				53544DF122D2199E00E2AB45 /* SubsectorDashboardCoordinator.swift in Sources */,
 				5390393B22D12B7C00CEADEF /* AppDelegate.swift in Sources */,
 				53EDF18522D13D49005DADDB /* StockPlotViewController.swift in Sources */,
 				53EDF1CD22D144DF005DADDB /* StockPlotCellViewData.swift in Sources */,
+				5370717E22D237BE00B07E7F /* WorldTradingDataEndpoint.swift in Sources */,
 				53EDF18922D13D5A005DADDB /* StockPlotDataManager.swift in Sources */,
 				5390398422D139AB00CEADEF /* AlphaAdvantageDataManager.swift in Sources */,
 				53EDF18322D13D3C005DADDB /* StockPlotCoordinator.swift in Sources */,
+				5370718122D2388800B07E7F /* WorldTradingDataDataManager.swift in Sources */,
+				53544DF922D2210300E2AB45 /* SubsectorDataManager.swift in Sources */,
 				5390398622D139C300CEADEF /* AlphaAdvantageModel.swift in Sources */,
 				5390398922D139FB00CEADEF /* Date+Extensions.swift in Sources */,
 				5390398222D1399400CEADEF /* AlphaAdvantageEndpoint.swift in Sources */,
+				5322073722D231AF006D7E1B /* WorldTradingDataAPIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

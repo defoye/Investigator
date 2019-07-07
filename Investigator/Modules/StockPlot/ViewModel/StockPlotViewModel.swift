@@ -27,7 +27,7 @@ public class StockPlotViewModel: NSObject, GenericTableViewModelProtocol {
 		guard let alphaAdvantageDataManager = dataManager as? AlphaAdvantageDataManager else { fatalError() }
 		
 		self.dataManager = alphaAdvantageDataManager
-		viewDataModels = []
+		viewDataModels = [[]]
 	}
 }
 
@@ -41,7 +41,7 @@ extension StockPlotViewModel: StockPlotViewModelProtocol {
 	}
 	
 	// TODO:- fucked up
-	private func constructViewDataForLinePlot(model: AlphaAdvantageTimeSeries) {
+	private func constructViewDataForLinePlot(model: AlphaAdvantageTimeSeries) -> StockPlotViewData {
 		let formatter: DateFormatter = DateFormatter.fullISO8601
 		
 		var timestampPoints: [(Date?,(Double,Double))] = []
@@ -55,28 +55,27 @@ extension StockPlotViewModel: StockPlotViewModelProtocol {
 			timestampPoints.append((date,(x,timestamp.open)))
 		}
 				
-		print("points: \(points)")
-		let viewData = [StockPlotViewData(points: points)]
-		viewDataModels = []
-		viewDataModels.append(viewData)
-		print("viewModels: \(viewDataModels.count)")
+		return StockPlotViewData(points: points)
 	}
 }
 
 extension StockPlotViewModel {
 	// MARK:- Networking
 	
-	func loadTimeSeriesIntraDay(completionBlock: @escaping TimeSeriesFetched) {
-		dataManager.getTimeSeriesIntraDay(function: "TIME_SERIES_INTRADAY", symbol: "MSFT", interval: "5min") {
+	func loadTimeSeriesIntraDay(forSymbol symbol: String, completionBlock: @escaping TimeSeriesFetched) {
+		dataManager.getTimeSeriesIntraDay(symbol: symbol, interval: "5min") {
 			metaData,timeSeries,error in
 			if let error = error {
-				print("Fetch time series error: \(error)")
+				print("StockPlotViewModel:- Fetch time series error: \(error)")
 				return
 			}
 			guard metaData != nil else { return }
 			guard let timeSeries = timeSeries else { return }
 			
-			self.constructViewDataForLinePlot(model: timeSeries)
+			let viewData = self.constructViewDataForLinePlot(model: timeSeries)
+			
+			self.viewDataModels[0].append(viewData)
+			
 			completionBlock()
 		}
 	}

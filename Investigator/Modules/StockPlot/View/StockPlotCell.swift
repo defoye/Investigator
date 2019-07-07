@@ -13,6 +13,7 @@ import MVVMCTools
 public class StockPlotCell: UITableViewCell, TableViewCellProtocol {
 	
 	let customView = DeleteMe()
+//	let customView = LinePlot()
 	
 	public func configure<ViewDataModel>(model withViewData: ViewDataModel) {
 		guard let viewData = withViewData as? StockPlotViewData else {

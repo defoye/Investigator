@@ -17,33 +17,57 @@ public class AlphaAdvantageDataManager: NetworkManager, DataManaging {
 }
 
 extension AlphaAdvantageDataManager {
-	// 1.
-	func getTimeSeriesIntraDay(function: String, symbol: String, interval: String, completion: @escaping (_ APIResponse: AlphaAdvantageResponseMetaData?, AlphaAdvantageTimeSeries?, _ error: String?) ->()) {
-		router.request(AlphaAdvantageAPI.timeSeriesIntraday(function: function, symbol: symbol, interval: interval)) { data,response,error in
-			
+	
+//	func getTimeSeriesIntraDay(symbol: String, interval: String, completion: @escaping (_ APIResponse: AlphaAdvantageResponseMetaData?, AlphaAdvantageTimeSeries?, _ error: String?) ->()) {
+//		router.request(AlphaAdvantageAPI.timeSeriesIntraday(symbol: symbol, interval: interval)) { data,response,error in
+//
+//			print("AlphaAdvantageDataManager:-")
+//
+//			self.handleResponse(data: data, response: response, error: error, completion: { (data) in
+//				guard let responseData = data else {
+//					print("AlphaAdvantageDataManager:- Error: No data")
+//					completion(nil,nil, NetworkResponse.noData.rawValue)
+//					return
+//				}
+//				print("AlphaAdvantageDataManager:- Data received.")
+//
+//				do {
+//					let apiResponse = try JSONDecoder().decode(AlphaAdvantageAPIResponse.self, from: responseData)
+//					print("AlphaAdvantageDataManager:- Data decoded.")
+//
+//					completion(apiResponse.metaData,apiResponse.timeSeries,nil)
+//				} catch {
+//					completion(nil,nil, NetworkResponse.unableToDecode.rawValue)
+//				}
+//			})
+//		}
+//	}
+	
+	func getTimeSeriesIntraDay(symbol: String, interval: String, completion: @escaping (_ APIResponse: AlphaAdvantageResponseMetaData?, AlphaAdvantageTimeSeries?, _ error: String?) ->()) {
+		router.request(AlphaAdvantageAPI.timeSeriesIntraday(symbol: symbol, interval: interval)) { data,response,error in
+
 			if error != nil {
 				completion(nil,nil, "Please check your network connection.")
 			}
-			
+
 			if let response = response as? HTTPURLResponse {
-				
+
 				let result = self.handleNetworkResponse(response)
 				switch result {
-					
+
 				case .success:
 					guard let responseData = data else {
 						completion(nil,nil, NetworkResponse.noData.rawValue)
 						return
 					}
-					print(data)
-					
+
 					do {
 						let apiResponse = try JSONDecoder().decode(AlphaAdvantageAPIResponse.self, from: responseData)
 						completion(apiResponse.metaData,apiResponse.timeSeries,nil)
 					} catch {
 						completion(nil,nil, NetworkResponse.unableToDecode.rawValue)
 					}
-					
+
 				case .failure(let networkFailureError):
 					completion(nil,nil, networkFailureError)
 				}
