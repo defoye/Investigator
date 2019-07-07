@@ -1,0 +1,6 @@
+framework module APITools {
+  umbrella header "APITools-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,37 @@
+PODS:
+  - APITools (1.0.0)
+  - DVTools (0.0.1)
+  - MVVMCTools (0.0.1)
+
+DEPENDENCIES:
+  - APITools (from `https://github.com/defoye/APITools.git`)
+  - DVTools (from `https://github.com/defoye/DVTools.git`)
+  - MVVMCTools (from `https://github.com/defoye/MVVMCTools.git`)
+
+EXTERNAL SOURCES:
+  APITools:
+    :git: https://github.com/defoye/APITools.git
+  DVTools:
+    :git: https://github.com/defoye/DVTools.git
+  MVVMCTools:
+    :git: https://github.com/defoye/MVVMCTools.git
+
+CHECKOUT OPTIONS:
+  APITools:
+    :commit: 42cbc2bc103762352e1e4f4058d9a12b029ed964
+    :git: https://github.com/defoye/APITools.git
+  DVTools:
+    :commit: 0cc572ed95977a1e0f7a77e566948029c0e1196a
+    :git: https://github.com/defoye/DVTools.git
+  MVVMCTools:
+    :commit: 4de895e81b949fa22ddd808e9a8279d04e5cb475
+    :git: https://github.com/defoye/MVVMCTools.git
+
+SPEC CHECKSUMS:
+  APITools: b6ee80fe51676b0bea29e466547480a4bee1459f
+  DVTools: 95e73777a9f47ac25e2443efee4c2dee5adbaeb0
+  MVVMCTools: e1a40526ca811a262005ec7ca11660d428f01656
+
+PODFILE CHECKSUM: fcf5d59f9373f7aea3bd5f9c4011461ca0834085
+
+COCOAPODS: 1.7.2

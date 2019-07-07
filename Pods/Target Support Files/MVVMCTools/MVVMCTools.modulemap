@@ -1,0 +1,6 @@
+framework module MVVMCTools {
+  umbrella header "MVVMCTools-umbrella.h"
+
+  export *
+  module * { export * }
+}

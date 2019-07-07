@@ -1,0 +1,19 @@
+{
+  "name": "MVVMCTools",
+  "version": "0.0.1",
+  "summary": "A small MVVM-C protocol library.",
+  "description": "MVVMCTools is a small library to help a programmer adhere to MVVM-C architecture.",
+  "homepage": "https://www.google.com/",
+  "license": "MIT",
+  "authors": {
+    "Ernest DeFoy III": "erniedefoy3@gmail.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "path": "."
+  },
+  "source_files": "MVVMCTools",
+  "exclude_files": "Classes/Exclude"
+}

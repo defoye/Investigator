@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Investigator
+//  DVTools
 //
 //  Created by Ernest DeFoy on 7/6/19.
 //  Copyright © 2019 Ernest DeFoy III. All rights reserved.
@@ -19,12 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
 		
-		let navigationController = UINavigationController()
-		let stockPlotCoordinator = StockPlotCoordinator(navigationController: navigationController)
-		
-		stockPlotCoordinator.start()
-		
-		window?.rootViewController = stockPlotCoordinator.navigationController
+		window?.rootViewController = TestController()
 		
 		return true
 	}

@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-Investigator/Pods-Investigator-frameworks.sh
+${BUILT_PRODUCTS_DIR}/APITools/APITools.framework
+${BUILT_PRODUCTS_DIR}/DVTools/DVTools.framework
+${BUILT_PRODUCTS_DIR}/MVVMCTools/MVVMCTools.framework

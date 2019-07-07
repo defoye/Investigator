@@ -1,0 +1,19 @@
+{
+  "name": "DVTools",
+  "version": "0.0.1",
+  "summary": "Data visualization",
+  "description": "Data visualization with bar graphs and line plots.",
+  "homepage": "http://google.com",
+  "license": "MIT",
+  "authors": {
+    "Ernest DeFoy III": "erniedefoy3@gmail.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "path": "."
+  },
+  "source_files": "DVTools",
+  "exclude_files": "Classes/Exclude"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "APITools",
+  "version": "1.0.0",
+  "summary": "A small networking library.",
+  "description": "A small networking library that will help interface with endpoints.",
+  "homepage": "http://google.com",
+  "license": "MIT",
+  "authors": {
+    "Ernest DeFoy III": "erniedefoy3@gmail.com"
+  },
+  "source": {
+    "path": "."
+  },
+  "source_files": "APITools",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}
