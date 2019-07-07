@@ -8,7 +8,6 @@
 
 import Foundation
 
-// This will define a URLRequest with all its comprising components such as headers, query parameters, and body parameters
 public protocol EndPointType {
 	var baseURL: URL { get }
 	var path: String { get }

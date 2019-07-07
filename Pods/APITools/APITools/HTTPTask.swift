@@ -8,10 +8,8 @@
 
 import Foundation
 
-//HTTPHeaders is simply just a typealias for a dictionary.
 public typealias HTTPHeaders = [String: String]
 
-//The HTTPTask is responsible for configuring parameters for a specific endPoint. Add as many cases as are applicable to the Network Layers requirements.  For now, just make requests.
 public enum HTTPTask {
 	case request
 	case requestParameters(bodyParameters: Parameters?, urlParameters: Parameters?)

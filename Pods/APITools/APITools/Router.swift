@@ -6,12 +6,9 @@
 //  Copyright © 2019 Ernest DeFoy III. All rights reserved.
 //
 
-//More complex configurations of a URLSession can be implemented using configurations that can change the behavior of the session. For more on this I would suggest taking some time to read this post--https://www.raywenderlich.com/567-urlsession-tutorial-getting-started
-
 import Foundation
 
 public class Router<EndPoint: EndPointType>: NetworkRouter {
-	//	This task is essentially what will do all the work. We keep the variable private as we do not want anyone outside this class modifying our task.
 	private var task: URLSessionTask?
 	
 	public init() {
@@ -26,12 +23,12 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
 			print("Request: \(request)")
 			task = session.dataTask(with: request, completionHandler: { data, response, error in
 				completion(data, response, error)
-				print("----------------------------------WIRE END----------------------------------")
 			})
 		} catch {
 			completion(nil, nil, error)
 		}
 		self.task?.resume()
+		print("----------------------------------WIRE END----------------------------------")
 	}
 	
 	public func cancel() {

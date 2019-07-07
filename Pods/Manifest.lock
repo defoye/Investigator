@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   APITools:
-    :commit: 5dc09ef51ef78c0201482700f3a74683a2924521
+    :commit: 977b22723e717a8bdfb2d643f1456273c3fc24fa
     :git: https://github.com/defoye/APITools.git
   DVTools:
     :commit: 0cc572ed95977a1e0f7a77e566948029c0e1196a
