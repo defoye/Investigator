@@ -11,21 +11,18 @@ import UIKit
 private struct Constants {
 	
 	static let drawBuffer: CGFloat = 30
-	
-	static let strokeColor: UIColor = .black
-	static let fillColor: UIColor = .clear
 }
 
 public class DeleteMe: UIView {
 	
 	private var points = [CGPoint]()
 	private var fillColor: UIColor?
+	private var strokeColor: UIColor = .black
 	private var graphLineWidth: CGFloat = 1.0
 	//	private var suffixPercent: Double = 0.0
 	
 	public func configure(withViewData viewData: [CGPoint], fillColor: UIColor?, graphLineWidth: CGFloat?) {
 		self.points = viewData
-		backgroundColor = .red
 		self.fillColor = fillColor
 		if let lineWidth = graphLineWidth { self.graphLineWidth = lineWidth }
 	}
@@ -81,16 +78,17 @@ public class DeleteMe: UIView {
 			graphPath.addLine(to: CGPoint(x: point.x, y: point.y))
 		}
 		
-		if let fillColor = fillColor {
-			// Wrap line around lower axis to fill with color
-			graphPath.addLine(to: CGPoint(x: self.bounds.maxX, y: self.bounds.maxY))
-			graphPath.addLine(to: CGPoint(x: self.bounds.minX, y: self.bounds.maxY))
-			
-			//set the stroke color
-			fillColor.setStroke()
-			graphPath.fill()
-		}
+//		if let fillColor = fillColor {
+//			// Wrap line around lower axis to fill with color
+//			graphPath.addLine(to: CGPoint(x: self.bounds.maxX, y: self.bounds.maxY))
+//			graphPath.addLine(to: CGPoint(x: self.bounds.minX, y: self.bounds.maxY))
+//
+//			//set the stroke color
+//			fillColor.setStroke()
+//			graphPath.fill()
+//		}
 		
+		strokeColor.setStroke()
 		//draw the stroke
 		UIView.animate(withDuration: 10.0) {
 			graphPath.stroke()

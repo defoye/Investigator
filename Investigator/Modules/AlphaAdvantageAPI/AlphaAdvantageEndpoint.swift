@@ -15,6 +15,7 @@ enum AlphaAdvantageNetworkEnvironment {
 
 public enum AlphaAdvantageAPI {
 	case timeSeriesIntraday(symbol: String, interval: String)
+	case timeSeriesDaily(symbol: String)
 }
 
 extension AlphaAdvantageAPI: EndPointType {
@@ -34,6 +35,8 @@ extension AlphaAdvantageAPI: EndPointType {
 		switch self {
 		case .timeSeriesIntraday:
 			return "query"
+		case .timeSeriesDaily:
+			return "query"
 		}
 	}
 	
@@ -48,6 +51,11 @@ extension AlphaAdvantageAPI: EndPointType {
 									  urlParameters: ["function":"TIME_SERIES_INTRADAY",
 													  "symbol":symbol,
 													  "interval":interval,
+													  "apikey":AlphaAdvantageDataManager.AlphaAdvantageAPIKey])
+		case .timeSeriesDaily(let symbol):
+			return .requestParameters(bodyParameters: nil,
+									  urlParameters: ["function":"TIME_SERIES_DAILY",
+													  "symbol":symbol,
 													  "apikey":AlphaAdvantageDataManager.AlphaAdvantageAPIKey])
 		default:
 			return .request

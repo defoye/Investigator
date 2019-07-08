@@ -12,9 +12,6 @@ import MVVMCTools
 typealias TimeSeriesFetched = () -> Void
 
 public protocol StockPlotViewModelProtocol {
-	func registerCells()
-	associatedtype Model
-	func constructViewDataModels(withModel: Model)
 }
 
 public class StockPlotViewModel: NSObject, GenericTableViewModelProtocol {
@@ -32,49 +29,77 @@ public class StockPlotViewModel: NSObject, GenericTableViewModelProtocol {
 }
 
 extension StockPlotViewModel: StockPlotViewModelProtocol {
-	public func constructViewDataModels(withModel: AlphaAdvantageTimeSeries) {
-		// TODO, maybe deprecate
-	}
 	
-	public func registerCells() {
-		// TODO
-	}
-	
-	// TODO:- fucked up
-	private func constructViewDataForLinePlot(model: AlphaAdvantageTimeSeries) -> StockPlotViewData {
-		let formatter: DateFormatter = DateFormatter.fullISO8601
-		
-		var timestampPoints: [(Date?,(Double,Double))] = []
+	// TODO: - Refactor
+	private func constructPointsForLinePlot(timeSeries: AlphaAdvantageTimeSeries) -> [(Double,Double)] {
+
 		var points: [(Double,Double)] = []
 		var x: Double = 0
 		// Array by open prices
-		for timestamp in model.alphaAdvantageTimeSeries {
+		// Sort by date first
+		for timestamp in timeSeries.alphaAdvantageTimeSeries.sorted(by: { (t1, t2) -> Bool in
+			t1.timeStampString < t2.timeStampString
+		}) {
 			x = x + 1
 			points.append((x,timestamp.open))
-			let date = formatter.date(from: timestamp.timeStampString)
-			timestampPoints.append((date,(x,timestamp.open)))
 		}
-				
-		return StockPlotViewData(points: points)
+		
+		return points
 	}
+	
+//	// TODO: - Refactor
+//	private func constructViewDataForLinePlot(symbol: String, timeSeries: AlphaAdvantageTimeSeries) -> StockPlotViewData {
+//		let formatter: DateFormatter = DateFormatter.fullISO8601
+//
+//		var timestampPoints: [(Date?,(Double,Double))] = []
+//		var points: [(Double,Double)] = []
+//		var x: Double = 0
+//		// Array by open prices
+//		// Sort by date first
+//		for timestamp in timeSeries.alphaAdvantageTimeSeries.sorted(by: { (t1, t2) -> Bool in
+//			t1.timeStampString < t2.timeStampString
+//		}) {
+//			x = x + 1
+//			print(timestamp.open)
+//			print(timestamp.timeStampString)
+//			points.append((x,timestamp.open))
+//			let date = formatter.date(from: timestamp.timeStampString)
+//			timestampPoints.append((date,(x,timestamp.open)))
+//		}
+//
+//		return StockPlotViewData(symbol: symbol, points: points)
+//	}
 }
 
 extension StockPlotViewModel {
-	// MARK:- Networking
+	// MARK: - Networking
+	// TODO: - Refactor
 	
 	func loadTimeSeriesIntraDay(forSymbol symbol: String, completionBlock: @escaping TimeSeriesFetched) {
 		dataManager.getTimeSeriesIntraDay(symbol: symbol, interval: "5min") {
 			metaData,timeSeries,error in
-			if let error = error {
-				print("StockPlotViewModel:- Fetch time series error: \(error)")
-				return
-			}
-			guard metaData != nil else { return }
-			guard let timeSeries = timeSeries else { return }
+
+			self.handleDataManagerCallback(metaData: metaData, timeSeries: timeSeries, error: error)
 			
-			let viewData = self.constructViewDataForLinePlot(model: timeSeries)
+			completionBlock()
+		}
+	}
+	
+	func loadTimeSeriesDaily(forSymbol symbol: String, completionBlock: @escaping TimeSeriesFetched) {
+		dataManager.getTimeSeriesDaily(symbol: symbol) {
+			metaData,timeSeries,error in
+
+			self.handleDataManagerCallback(metaData: metaData, timeSeries: timeSeries, error: error)
 			
-			self.viewDataModels[0].append(viewData)
+			completionBlock()
+		}
+	}
+	
+	func loadOffline(file: String, completionBlock: @escaping TimeSeriesFetched) {
+		dataManager.offlineFetch(file: file) {
+			metaData,timeSeries,error in
+			
+			self.handleDataManagerCallback(metaData: metaData, timeSeries: timeSeries, error: error)
 			
 			completionBlock()
 		}
@@ -98,4 +123,23 @@ extension StockPlotViewModel: TableViewModeling {
 	}
 	
 	
+}
+
+extension StockPlotViewModel {
+	
+	// MARK: - Helpers.
+	
+	private func handleDataManagerCallback(metaData: AlphaAdvantageResponseMetaData?, timeSeries: AlphaAdvantageTimeSeries?, error: String?) {
+		if let error = error {
+			print("StockPlotViewModel:- Fetch time series error: \(error)")
+			return
+		}
+		guard metaData != nil else { return }
+		guard let timeSeries = timeSeries else { return }
+		
+		let points = self.constructPointsForLinePlot(timeSeries: timeSeries)
+		let symbol = metaData?.symbol ?? "SYML"
+
+		self.viewDataModels[0].append(StockPlotViewData(symbol: symbol, points: points))
+	}
 }

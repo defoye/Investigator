@@ -11,10 +11,12 @@ import MVVMCTools
 
 public struct StockPlotViewData: ModelType {
 	public var height: Float
+	public let symbol: String
 	public let points: [(Double,Double)]
 	
-	public init(points: [(Double,Double)]) {
+	public init(symbol: String, points: [(Double,Double)]) {
 		self.points = points
 		self.height = 250
+		self.symbol = symbol
 	}
 }

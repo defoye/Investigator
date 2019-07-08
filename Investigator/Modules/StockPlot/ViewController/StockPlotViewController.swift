@@ -57,10 +57,29 @@ extension StockPlotViewController {
 		super.viewDidLoad()
 		setup()
 		
-		loadIntraday(forSymbol: "MSFT")
-		loadIntraday(forSymbol: "AAPL")
-		loadIntraday(forSymbol: "GOOG")
-		loadIntraday(forSymbol: "NVDA")
+		tableViewModel.loadOffline(file: "Microsoft5min", completionBlock: {
+			DispatchQueue.main.async {
+				print("Reload tableView")
+				self.tableView.reloadData()
+			}
+		})
+		tableViewModel.loadOffline(file: "Apple5min", completionBlock: {
+			DispatchQueue.main.async {
+				print("Reload tableView")
+				self.tableView.reloadData()
+			}
+		})
+		tableViewModel.loadOffline(file: "Tesla5min", completionBlock: {
+			DispatchQueue.main.async {
+				print("Reload tableView")
+				self.tableView.reloadData()
+			}
+		})
+//		loadDaily(forSymbol: "MSFT")
+//		loadIntraday(forSymbol: "MSFT")
+//		loadDaily(forSymbol: "AAPL")
+//		loadIntraday(forSymbol: "GOOG")
+//		loadIntraday(forSymbol: "NVDA")
 	}
 }
 
@@ -82,8 +101,8 @@ extension StockPlotViewController {
 	}
 	
 	func setupColorScheme() {
-		view.backgroundColor = .red
-		tableView.backgroundColor = .green
+		view.backgroundColor = .white
+		tableView.backgroundColor = .white
 	}
 }
 
@@ -116,10 +135,21 @@ extension StockPlotViewController: UITableViewDataSource {
 extension StockPlotViewController {
 	
 	// MARK:- Helpers.
+	// TODO: - Refactor (use generics)
 	
 	private func loadIntraday(forSymbol symbol: String) {
 		// Load data.
 		tableViewModel.loadTimeSeriesIntraDay(forSymbol: symbol) {
+			DispatchQueue.main.async {
+				print("Reload tableView")
+				self.tableView.reloadData()
+			}
+		}
+	}
+	
+	private func loadDaily(forSymbol symbol: String) {
+		// Load data.
+		tableViewModel.loadTimeSeriesDaily(forSymbol: symbol) {
 			DispatchQueue.main.async {
 				print("Reload tableView")
 				self.tableView.reloadData()

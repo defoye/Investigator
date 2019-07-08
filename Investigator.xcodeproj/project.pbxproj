@@ -16,6 +16,12 @@
 		53544DFD22D2212500E2AB45 /* SubsectorCellViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53544DFC22D2212500E2AB45 /* SubsectorCellViewData.swift */; };
 		5370717E22D237BE00B07E7F /* WorldTradingDataEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370717D22D237BE00B07E7F /* WorldTradingDataEndpoint.swift */; };
 		5370718122D2388800B07E7F /* WorldTradingDataDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370718022D2388800B07E7F /* WorldTradingDataDataManager.swift */; };
+		5370718522D2887F00B07E7F /* Firestore+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370718422D2887F00B07E7F /* Firestore+Extensions.swift */; };
+		5370718D22D2C3FF00B07E7F /* MicrosoftDaily.json in Resources */ = {isa = PBXBuildFile; fileRef = 5370718C22D2C3FF00B07E7F /* MicrosoftDaily.json */; };
+		5370719322D2C82500B07E7F /* Microsoft5min.json in Resources */ = {isa = PBXBuildFile; fileRef = 5370719222D2C82500B07E7F /* Microsoft5min.json */; };
+		5370719722D2C8F400B07E7F /* Apple5min.json in Resources */ = {isa = PBXBuildFile; fileRef = 5370719622D2C8F400B07E7F /* Apple5min.json */; };
+		5370719922D2C90900B07E7F /* Tesla5min.json in Resources */ = {isa = PBXBuildFile; fileRef = 5370719822D2C90900B07E7F /* Tesla5min.json */; };
+		5370719B22D2CD9A00B07E7F /* AlphaAdvantageDailyAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370719A22D2CD9A00B07E7F /* AlphaAdvantageDailyAPIResponse.swift */; };
 		5390393B22D12B7C00CEADEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5390393A22D12B7C00CEADEF /* AppDelegate.swift */; };
 		5390394222D12B7D00CEADEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5390394122D12B7D00CEADEF /* Assets.xcassets */; };
 		5390395022D12B7D00CEADEF /* InvestigatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5390394F22D12B7D00CEADEF /* InvestigatorTests.swift */; };
@@ -80,6 +86,12 @@
 		53544DFC22D2212500E2AB45 /* SubsectorCellViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsectorCellViewData.swift; sourceTree = "<group>"; };
 		5370717D22D237BE00B07E7F /* WorldTradingDataEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTradingDataEndpoint.swift; sourceTree = "<group>"; };
 		5370718022D2388800B07E7F /* WorldTradingDataDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTradingDataDataManager.swift; sourceTree = "<group>"; };
+		5370718422D2887F00B07E7F /* Firestore+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Extensions.swift"; sourceTree = "<group>"; };
+		5370718C22D2C3FF00B07E7F /* MicrosoftDaily.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MicrosoftDaily.json; sourceTree = "<group>"; };
+		5370719222D2C82500B07E7F /* Microsoft5min.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Microsoft5min.json; sourceTree = "<group>"; };
+		5370719622D2C8F400B07E7F /* Apple5min.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Apple5min.json; sourceTree = "<group>"; };
+		5370719822D2C90900B07E7F /* Tesla5min.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Tesla5min.json; sourceTree = "<group>"; };
+		5370719A22D2CD9A00B07E7F /* AlphaAdvantageDailyAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaAdvantageDailyAPIResponse.swift; sourceTree = "<group>"; };
 		5390393722D12B7C00CEADEF /* Investigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Investigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5390393A22D12B7C00CEADEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5390394122D12B7D00CEADEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -282,9 +294,21 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		5370718622D2C32800B07E7F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5370718C22D2C3FF00B07E7F /* MicrosoftDaily.json */,
+				5370719222D2C82500B07E7F /* Microsoft5min.json */,
+				5370719622D2C8F400B07E7F /* Apple5min.json */,
+				5370719822D2C90900B07E7F /* Tesla5min.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		5390392E22D12B7C00CEADEF = {
 			isa = PBXGroup;
 			children = (
+				5370718622D2C32800B07E7F /* Resources */,
 				5390393922D12B7C00CEADEF /* Investigator */,
 				5390394E22D12B7D00CEADEF /* InvestigatorTests */,
 				5390395922D12B7D00CEADEF /* InvestigatorUITests */,
@@ -361,6 +385,7 @@
 		5390397F22D1384E00CEADEF /* FirestoreDataManagement */ = {
 			isa = PBXGroup;
 			children = (
+				5370718422D2887F00B07E7F /* Firestore+Extensions.swift */,
 			);
 			path = FirestoreDataManagement;
 			sourceTree = "<group>";
@@ -371,6 +396,7 @@
 				5390398122D1399400CEADEF /* AlphaAdvantageEndpoint.swift */,
 				5390398322D139AB00CEADEF /* AlphaAdvantageDataManager.swift */,
 				5390398522D139C300CEADEF /* AlphaAdvantageModel.swift */,
+				5370719A22D2CD9A00B07E7F /* AlphaAdvantageDailyAPIResponse.swift */,
 			);
 			name = AlphaAdvantageAPI;
 			path = ../Modules/AlphaAdvantageAPI;
@@ -505,7 +531,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5370719322D2C82500B07E7F /* Microsoft5min.json in Resources */,
+				5370719722D2C8F400B07E7F /* Apple5min.json in Resources */,
 				5390394222D12B7D00CEADEF /* Assets.xcassets in Resources */,
+				5370718D22D2C3FF00B07E7F /* MicrosoftDaily.json in Resources */,
+				5370719922D2C90900B07E7F /* Tesla5min.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +649,7 @@
 				53EDF18722D13D51005DADDB /* StockPlotViewModel.swift in Sources */,
 				53544DFB22D2211700E2AB45 /* SubsectorCell.swift in Sources */,
 				53544DF522D220F000E2AB45 /* SubsectorViewController.swift in Sources */,
+				5370718522D2887F00B07E7F /* Firestore+Extensions.swift in Sources */,
 				53544DF722D220F800E2AB45 /* SubsectorViewModel.swift in Sources */,
 				53EDF1C922D143E4005DADDB /* StockPlotCell.swift in Sources */,
 				53544DFD22D2212500E2AB45 /* SubsectorCellViewData.swift in Sources */,
@@ -638,6 +669,7 @@
 				5390398622D139C300CEADEF /* AlphaAdvantageModel.swift in Sources */,
 				5390398922D139FB00CEADEF /* Date+Extensions.swift in Sources */,
 				5390398222D1399400CEADEF /* AlphaAdvantageEndpoint.swift in Sources */,
+				5370719B22D2CD9A00B07E7F /* AlphaAdvantageDailyAPIResponse.swift in Sources */,
 				5322073722D231AF006D7E1B /* WorldTradingDataAPIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
