@@ -48,7 +48,7 @@ public class StockPlotCell: UITableViewCell, TableViewCellProtocol {
 	
 	func setupTextView(text: String) {
 		textView.text = text
-		textView.font = UIFont.systemFont(ofSize: 24)
+		textView.font = UIFont.systemFont(ofSize: 44)
 		textView.textColor = .black
 		textView.backgroundColor = .clear
 		textView.translatesAutoresizingMaskIntoConstraints = false
